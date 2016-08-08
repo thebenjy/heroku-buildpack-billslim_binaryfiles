@@ -22,7 +22,7 @@ while read url; do
 	wget -O /tmp/master.tar --no-check-certificate $url && \
 	TARDIRNAME=`tar -tzf /tmp/master.tar  | head -1 | cut -f1 -d"/"` && \
 	tar xpvf /tmp/master.tar && \
-	mv /tmp/${TARDIRNAME}/* $1/bin && ls $1/bin 
+	mv $1/${TARDIRNAME}/* $1/bin && ls $1/bin 
 
     #cmd="wget -O /tmp/master.tar --no-check-certificate $url  tar xpvf /tmp/master.tar -C $1/bin"
     #wget -O /tmp/master.tar --no-check-certificate $url | tar xpvf /tmp/master.tar -C $1/bin
