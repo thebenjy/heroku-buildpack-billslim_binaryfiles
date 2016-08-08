@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# based on https://github.com/peterkeen/heroku-buildpack-vendorbinaries
+
+# this pack is valid for apps with a .billslimbinaries in the root
+if [ -f $1/.billslimbinaries ]; then
+  echo "BillslimBinaries"
+  exit 0
+else
+  exit 1
+fi
