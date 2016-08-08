@@ -17,8 +17,11 @@ cd $1
 while read url; do
   if [ -n "$url" ]; then # incase ensure_newline_at_eof_on_save is enabled
     echo BillslimBinaryBuild $url | indent
+    pwd; ls
 # https://github.com/User/repo/tarball/master
-    wget --no-check-certificate $url | tar xpvf master
+    cmd="wget -O /tmp/master.tar --no-check-certificate $url | tar xpvf /tmp/master.tar -C $1/bin"
+    #wget -O /tmp/master.tar --no-check-certificate $url | tar xpvf /tmp/master.tar -C $1/bin
+    `${cmd}`
   fi
 done < .billslimbinaries
 
